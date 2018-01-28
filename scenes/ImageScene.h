@@ -11,7 +11,7 @@ public:
 	}
 	// scene setup
 	void setup() {
-		image.load("image/example.png");
+		image.load("images/example.png");
 	}
 
 	// called when scene is entering, this is just a demo and this

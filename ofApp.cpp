@@ -36,11 +36,15 @@ void ofApp::setup() {
 	#endif
 	
 	// load scenes
+
+		sceneManager.add(new Page1Scene());
+		sceneManager.add(new Page2Scene());
+		sceneManager.add(new ImageScene());
+		sceneManager.add(new VideoScene());
+
+
 	particleScene = (ParticleScene*) sceneManager.add(new ParticleScene()); // save pointer
 	sceneManager.add(new LineScene());
-
-	sceneManager.add(new ImageScene());
-	sceneManager.add(new VideoScene());
 
 	sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
 	ofSetLogLevel("ofxSceneManager", OF_LOG_VERBOSE); // lets see whats going on inside

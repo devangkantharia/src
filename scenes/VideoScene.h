@@ -11,7 +11,7 @@ public:
 	}
 	// scene setup
 	void setup() {
-		video.load("video/elephant.mov");
+		video.load("videos/elephant.mov");
 	}
 
 	// called when scene is entering, this is just a demo and this
