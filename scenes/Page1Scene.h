@@ -11,6 +11,11 @@ public:
 	}
 	// scene setup
 	void setup() {
+		ofTrueTypeFont::setGlobalDpi(72);
+		verdana30.load("verdana.ttf", 30, true, true);
+		verdana30.setLineHeight(34.0f);
+		verdana30.setLetterSpacing(1.035);
+
 		dir.listDir("videos/bgVideos");
 		dir.allowExt("mov");
 		dir.sort(); // in linux the file system doesn't return file lists ordered in alphabetical order
@@ -32,6 +37,7 @@ public:
 	// called when scene is entering, this is just a demo and this
 	// implementation is not required for this class
 	void updateEnter() {// called on first enter update
+		ofBackground(ofColor::lightBlue);
 		if (isEnteringFirst()) {
 			ofLogNotice("Page1Scene") << "update enter";
 		}
@@ -43,6 +49,9 @@ public:
 		if (!isEntering()) {
 			ofLogNotice("Page1Scene") << "update enter done";
 		}
+
+		videos[currentVideo].draw(300, 50, 200, 200);
+		videos[currentVideo].play();
 	}
 
 	// normal update
@@ -70,6 +79,14 @@ public:
 
 	// draw
 	void draw() {
+		
+		ofSetColor(29, 29, 29);
+		//ofDrawLine(30, 169, ofGetWidth() - 4, 169);
+
+		ofSetColor(225);
+		verdana30.drawString("Select Background Template", 80, 50);
+
+
 
 		if (dir.size() > 0) {
 			ofSetColor(ofColor::white);
@@ -167,4 +184,5 @@ public:
 	vector<ofVideoPlayer> videos;
 
 	int currentVideo;
+	ofTrueTypeFont	verdana30;
 };
