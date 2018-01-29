@@ -33,7 +33,7 @@ public:
 		vidGrabber.initGrabber(camWidth, camHeight);
 
 		videoInverted.allocate(camWidth, camHeight, OF_PIXELS_RGB);
-		videoTexture.allocate(videoInverted);
+		//videoTexture.allocate(videoInverted);
 		ofSetVerticalSync(true);
 	}
 

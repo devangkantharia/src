@@ -10,9 +10,10 @@
  */
 #pragma once
 
+#include "IntroPageScene.h"
 #include "Page1Scene.h"
 #include "Page2Scene.h"
-#include "ImageScene.h"
-#include "VideoScene.h"
-#include "ParticleScene.h"
-#include "LineScene.h"
+//#include "ImageScene.h"
+//#include "VideoScene.h"
+//#include "ParticleScene.h"
+//#include "LineScene.h"

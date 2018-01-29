@@ -36,22 +36,20 @@ void ofApp::setup() {
 	#endif
 	
 	// load scenes
+	sceneManager.add(new IntroPageScene());
+	sceneManager.add(new Page1Scene());
+	sceneManager.add(new Page2Scene());
 
-		sceneManager.add(new Page1Scene());
-		sceneManager.add(new Page2Scene());
-		sceneManager.add(new ImageScene());
-		sceneManager.add(new VideoScene());
-
-
-	particleScene = (ParticleScene*) sceneManager.add(new ParticleScene()); // save pointer
-	sceneManager.add(new LineScene());
+	//particleScene = (ParticleScene*) sceneManager.add(new ParticleScene()); // save pointer
 
 	sceneManager.setup(true); // true = setup all the scenes now (not on the fly)
 	ofSetLogLevel("ofxSceneManager", OF_LOG_VERBOSE); // lets see whats going on inside
 	
 	// start with a specific scene
 	// set now to true in order to ignore the scene fade and change now
-	sceneManager.gotoScene("Lines", true);
+	
+	sceneManager.gotoScene("IntroPageScene", true);
+
 	lastScene = sceneManager.getCurrentSceneIndex();
 	
 	// overlap scenes when transitioning
@@ -68,6 +66,8 @@ void ofApp::setup() {
 	// the input callbacks in your scenes will be called if they are implemented
 	//
 	setSceneManager(&sceneManager);
+
+	ofBackground(54, 54, 54, 255);
 }
 
 //--------------------------------------------------------------
@@ -128,6 +128,19 @@ void ofApp::draw() {
 void ofApp::keyPressed(int key) {
 	
 	switch(key) {
+		
+		case '0':
+			sceneManager.gotoScene("IntroPageScene", true);
+			break;
+		case '1':
+			sceneManager.gotoScene("Page1Scene", true);
+			break;
+		case '2':
+			sceneManager.gotoScene("Page2Scene", true);
+			break;
+		case '3':
+			sceneManager.gotoScene("IntroPageScene", true);
+			break;
 	
 		case 'd':
 			bDebug = !bDebug;
@@ -174,18 +187,6 @@ void ofApp::keyPressed(int key) {
 			
 		case OF_KEY_UP:
 			sceneManager.gotoScene(lastScene);
-			break;
-			
-		case '-':
-			if(sceneManager.getCurrentScene() == particleScene) {
-				particleScene->removeOneParticle();
-			}
-			break;
-			
-		case '=':
-			if(sceneManager.getCurrentScene() == particleScene) {
-				particleScene->addOneParticle();
-			}
 			break;
 			
 		case 'o':

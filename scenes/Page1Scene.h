@@ -26,7 +26,7 @@ public:
 		}
 		currentVideo = 0;
 
-		//ofBackground(ofColor::white);
+		ofBackground(ofColor::lightBlue);
 	}
 
 	// called when scene is entering, this is just a demo and this
